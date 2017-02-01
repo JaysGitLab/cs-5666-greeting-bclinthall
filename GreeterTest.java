@@ -28,4 +28,17 @@ public class GreeterTest{
         greeter.greet();
         assertEquals("failure, should be equal to \"Hello, Clint\"", "Hello, Clint", outContent.toString().trim());
     }
+
+    @Test 
+    public void parse3Args(){
+        Greeter greeter = new Greeter();
+        Greeter.GreeterArgs greeterArgs = greeter.parseArgs("Tom", "Dick", "Harry");
+        assertEquals("3 arg failure, should be equal to 'Harry'", "Harry", greeterArgs.getName());
+    }
+    @Test
+    public void parseArgs(){
+        Greeter greeter = new Greeter();
+        Greeter.GreeterArgs greeterArgs = greeter.parseArgs("Harry");
+        assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeterArgs.getName());
+    }
 }
