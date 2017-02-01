@@ -26,6 +26,6 @@ public class GreeterTest{
     public void outputsHello(){
         Greeter greeter = new Greeter();
         greeter.greet();
-        assertEquals("failure, should be equal to \"Hello, World!\"", "Hello, World!", outContent.toString().trim());
+        assertEquals("failure, should be equal to \"Hello, Clint\"", "Hello, Clint", outContent.toString().trim());
     }
 }
