@@ -23,22 +23,29 @@ public class GreeterTest{
     }
 
     @Test
-    public void outputsHello(){
+    public void greetDefault(){
         Greeter greeter = new Greeter();
+        greeter.parseArgs();
         greeter.greet();
         assertEquals("failure, should be equal to \"Hello, Clint\"", "Hello, Clint", outContent.toString().trim());
     }
-
+    @Test
+    public void greetJay(){
+        Greeter greeter = new Greeter();
+        greeter.parseArgs("Jay");
+        greeter.greet();
+        assertEquals("failure, should be equal to \"Hello, Jay\"", "Hello, Jay", outContent.toString().trim());
+    }
     @Test 
     public void parse3Args(){
         Greeter greeter = new Greeter();
-        Greeter.GreeterArgs greeterArgs = greeter.parseArgs("Tom", "Dick", "Harry");
-        assertEquals("3 arg failure, should be equal to 'Harry'", "Harry", greeterArgs.getName());
+        greeter.parseArgs("Tom", "Dick", "Harry");
+        assertEquals("3 arg failure, should be equal to 'Harry'", "Harry", greeter.getName());
     }
     @Test
     public void parseArgs(){
         Greeter greeter = new Greeter();
-        Greeter.GreeterArgs greeterArgs = greeter.parseArgs("Harry");
-        assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeterArgs.getName());
+        greeter.parseArgs("Harry");
+        assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeter.getName());
     }
 }
