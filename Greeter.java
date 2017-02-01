@@ -4,9 +4,6 @@ public class Greeter{
         Greeter greeter = new Greeter();
         greeter.greet();
     }
-    void setName(String name){
-        this.name = name;
-    }
     String getName(){
         return name;
     }
@@ -16,7 +13,7 @@ public class Greeter{
     void parseArgs(String... args ){
         int len = args.length;
         if( len > 0 ){
-            setName(args[len-1]);
+            name = args[len-1];
         }
     }
 }
