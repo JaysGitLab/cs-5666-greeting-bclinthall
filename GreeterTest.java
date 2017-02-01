@@ -9,15 +9,17 @@ import java.io.PrintStream;
  * thanks to dfa at  http://stackoverflow.com/a/1119559
  */
 public class GreeterTest{
+    PrintStream origOut;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void setUpStream(){
+        origOut = System.out;
         System.setOut(new PrintStream(outContent));
     }
     @After
     public void cleanUpStream(){
-        System.setOut(null);
+        System.setOut(origOut);
     }
 
     @Test
