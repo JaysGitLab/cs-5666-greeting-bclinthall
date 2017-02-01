@@ -40,20 +40,31 @@ public class GreeterTest{
     public void parse3Args(){
         Greeter greeter = new Greeter();
         greeter.parseArgs("Tom", "Dick", "Harry");
-        assertEquals("3 arg failure, should be equal to 'Harry'", "Harry", greeter.getName());
+        assertEquals("3 arg failure, should be equal to 'Harry'", "Harry", greeter.getUserName());
     }
     @Test
     public void parseArgs(){
         Greeter greeter = new Greeter();
         greeter.parseArgs("Harry");
-        assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeter.getName());
+        assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeter.getUserName());
     }
     @Test
     public void caseCorrection(){
         Greeter greeter = new Greeter();
         greeter.parseArgs("george");
-        assertEquals("case correction failure", "George", greeter.getName());
+        assertEquals("case correction failure", "George", greeter.getUserName());
         
     }
-
+    @Test 
+    public void progName(){
+        Greeter greeter = new Greeter();
+        greeter.parseArgs("-me", "Hal", "George");
+        assertEquals("prog name failure, wrong prog name", "Hal", greeter.getProgName());
+    }
+    @Test 
+    public void progNameUserName(){
+        Greeter greeter = new Greeter();
+        greeter.parseArgs("-me", "Hal", "George");
+        assertEquals("prog name failure, wrong user name", "George", greeter.getUserName());
+    }
 }
