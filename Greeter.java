@@ -3,6 +3,7 @@ public class Greeter{
     private String progName="Greeter";
     public static void main(String... args){
         Greeter greeter = new Greeter();
+        greeter.parseArgs(args);
         greeter.greet();
     }
     String getUserName(){
