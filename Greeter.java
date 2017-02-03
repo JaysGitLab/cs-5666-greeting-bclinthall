@@ -5,9 +5,6 @@ public class Greeter{
         greeter.parseArgs(args);
         greeter.greet();
     }
-    void setName(String name){
-        this.name = name;
-    }
     String getName(){
         return name;
     }
@@ -17,7 +14,9 @@ public class Greeter{
     void parseArgs(String... args ){
         int len = args.length;
         if( len > 0 ){
-            setName(args[len-1]);
+            StringBuilder nameSb = new StringBuilder(args[len-1]);
+            nameSb.setCharAt(0, Character.toUpperCase(nameSb.charAt(0)));
+            name = nameSb.toString();
         }
     }
 }

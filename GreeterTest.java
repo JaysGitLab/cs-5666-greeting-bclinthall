@@ -44,4 +44,12 @@ public class GreeterTest{
         greeter.parseArgs("Harry");
         assertEquals("1 arg failure, should be equal to 'Harry'", "Harry", greeter.getName());
     }
+    @Test
+    public void caseCorrection(){
+        Greeter greeter = new Greeter();
+        greeter.parseArgs("george");
+        assertEquals("case correction failure", "George", greeter.getName());
+        
+    }
+
 }
