@@ -24,16 +24,12 @@ public class GreeterTest{
 
     @Test
     public void greetDefault(){
-        Greeter greeter = new Greeter();
-        greeter.parseArgs();
-        greeter.greet();
+        Greeter.main();
         assertEquals("failure, should be equal to \"Hello, Clint\"", "Hello, Clint", outContent.toString().trim());
     }
     @Test
     public void greetJay(){
-        Greeter greeter = new Greeter();
-        greeter.parseArgs("Jay");
-        greeter.greet();
+        Greeter.main("Jay");
         assertEquals("failure, should be equal to \"Hello, Jay\"", "Hello, Jay", outContent.toString().trim());
     }
     @Test 
