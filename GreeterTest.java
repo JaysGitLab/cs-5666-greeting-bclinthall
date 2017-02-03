@@ -23,16 +23,30 @@ public class GreeterTest{
     }
 
     @Test
-    public void greetDefault(){
-        Greeter.main();
-        assertEquals("failure, should be equal to \"Hello, Clint\"", "Hello, Clint", outContent.toString().trim());
+    public void noArgs(){
+        testOut(makeGreeting("Clint", "Hal"));
     }
     @Test
-    public void greetJay(){
-        Greeter.main("Jay");
-        assertEquals("failure, should be equal to \"Hello, Jay\"", "Hello, Jay", outContent.toString().trim());
+    public void bothArgs(){
+        testOut(makeGreeting("Jay", "Siri"), "-me", "Siri", "Jay");
     }
     @Test 
+    public void userOnly(){
+        testOut(makeGreeting("Jay", "Hal"), "Jay");
+    }
+    @Test 
+    public void progOnly(){
+        testOut(makeGreeting("Clint", "Siri"), "-me", "Siri");
+    }
+    public String makeGreeting(String user, String prog){
+        return "Hello, " + user + ". My name is " + prog + ". How are you today, " + user + "?";
+    }
+    public void testOut(String correct, String... args){
+        Greeter.main(args);
+        assertEquals("failure, should be equal to '"+correct+"'", correct, outContent.toString().trim());
+        
+    }
+    @Test
     public void parse3Args(){
         Greeter greeter = new Greeter();
         greeter.parseArgs("Tom", "Dick", "Harry");

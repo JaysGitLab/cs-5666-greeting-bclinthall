@@ -1,6 +1,6 @@
 public class Greeter{
     private String userName="Clint";
-    private String progName="Greeter";
+    private String progName="Hal";
     public static void main(String... args){
         Greeter greeter = new Greeter();
         greeter.parseArgs(args);
@@ -13,7 +13,10 @@ public class Greeter{
         return progName;
     }
     public void greet(){
-        System.out.println("Hello, "+userName);
+        System.out.println(makeGreeting());
+    }
+    private String makeGreeting(){
+         return "Hello, " + userName + ". My name is " + progName + ". How are you today, " + userName + "?"; 
     }
     void parseArgs(String... args ){
         int len = args.length;
