@@ -42,9 +42,7 @@ public class GreeterTest{
         return "Hello, " + user + ". My name is " + prog + ". How are you today, " + user + "?";
     }
     public void testOut(String correct, String... args){
-        Greeter greeter = new Greeter();
-        greeter.parseArgs(args);
-        greeter.greet();
+        Greeter.main(args);
         assertEquals("failure, should be equal to '"+correct+"'", correct, outContent.toString().trim());
         
     }
